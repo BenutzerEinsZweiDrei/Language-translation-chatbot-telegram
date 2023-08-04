@@ -11,5 +11,7 @@ Uses huggingface ai to respond to messages on telegram in 2 languages
 6. Replace your token with api token in bot.py
 7. Since bot is still crashing a lot start with ```sudo bash rest.sh``` to restart on crash
 
+![Screen](Screen.jpg)
+
 
 
