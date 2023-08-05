@@ -18,4 +18,7 @@ Uses huggingface ai to respond to messages on telegram in 2 languages
 
 # Known Issues
 
-Hugchat Crash on Doctype html issue https://github.com/IntelligenzaArtificiale/Free-Auto-GPT/issues/133
+- Hugchat Crash on Doctype html issue https://github.com/IntelligenzaArtificiale/Free-Auto-GPT/issues/133
+- Hugchat downtimes
+
+
