@@ -4,7 +4,7 @@ Uses huggingface ai to respond to messages on telegram in 2 languages
 # Usage
 
 1. Follow instructions here to get cookies.json https://github.com/daanturo/hugging-chat-comint.el#cookies (if you on android you can use kiwi browser for cookie extension)
-2. Rename cookies.json to "<your huggingface email>.json"
+2. Rename cookies.json to "--your huggingface email--.json"
 3. ```pip install telebot```
 4. ```pip install hugchat_api```
 5. ```pip install deep_translator```
