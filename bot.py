@@ -14,11 +14,11 @@ learnLanguage = "French" # bot will be prompted to teach that language. Put here
 langCode1 = "fr" # the first message shows up in
 langCode2 = "en" # the second message shows up in
 
-BOT_TOKEN = "<your telegram bot token>"
+BOT_TOKEN = "your telegram token"
 
-EMAIL = "<your huggingface email>"
-PASSWD = "<your huggingface password>"
-COOKIE_STORE_PATH = "./" 
+EMAIL = "your huggingchat email"
+PASSWD = "your huggingchat password"
+COOKIE_STORE_PATH = "./"
 
 
 ### Teacher Prompt
@@ -73,16 +73,11 @@ def send_welcome(message):
     max_tries=2,
     # callback=(bot.updateTitle, (conversation_id,))
     )
-    while not pro.isDone():
-        time.sleep(0.1)
-        if debug :
-            print("x")
             
     if debug : 
         print("DEBUG: conversation startet")
         
     bot.reply_to(message, "Howdy, im a language translation bot. Just keep talking to me.")
-    
     global Started
     Started = True
     
@@ -106,24 +101,36 @@ def echo_all(message):
     response = chatbot.chat(
     text=prompt,
     conversation_id=conversation_id,
-    web_search=True,
+    web_search=False,
     max_tries=2,
     )
-    while not response.isDone():
-        time.sleep(0.1)
+    # give him some time
+    x = 0
+    while not x > 200 :
+        if not response.isDone():
+            time.sleep(0.1)
+            x= x + 1
+        else :
+        	x = 201
         if debug :
-            print("x")
-            
+            print(x)
+     
+    # choose response
+    if response.isDone() :
+    	chosen_response = response.getFinalText()
+    else :
+        chosen_response ="(debug)" + ' '.join(response.getText())
+        
     if debug :
     	    print("DEBUG: received hugchat response")
-    	    
+    
     # reply first message
-    bot.reply_to(message, flag1 + ' ' +response.getFinalText())
+    bot.reply_to(message, flag1 + ' ' +chosen_response)
     if debug : 
         print("DEBUG: bot replied first message")
         
     # into second language and reply
-    translated = GoogleTranslator(source='auto', target= langCode2 ).translate(response.getFinalText()) 
+    translated = GoogleTranslator(source='auto', target= langCode2 ).translate(chosen_response) 
     bot.reply_to(message,  flag2 + ' ' +translated)
     
     if debug : 
