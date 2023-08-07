@@ -16,6 +16,9 @@ Uses huggingface ai to respond to messages on telegram in 2 languages
 
 ![Screen](Screen.jpg)
 
+# Fixing
+
+Sometimes the bot forgets to act as a language teacher. Just use "/start" to remind him and start a new conversation.
 
 # Known Issues
 
