@@ -22,6 +22,7 @@ COOKIE_STORE_PATH = "./"
 
 
 ### Teacher Prompt
+# will be translated to your langCode1
 
 promptTeacher = "I want you to act as a spoken "+learnLanguage+" teacher and improver for the complete conversation. I will speak to you in any language and you will reply to me in "+learnLanguage+" to practice my spoken "+learnLanguage+". I want you to keep your reply neat, limiting the reply to 100 words. I want you to strictly correct my grammar mistakes, typos, and factual errors if i use the language "+learnLanguage+". I want you to ask me a question in your reply always. Now let's start practicing, you could ask me a question first. Remember, I want you to strictly correct my grammar mistakes, typos, and factual errors and please remember to keep your answer short and in easy language. Remember all of this for the complete conversation."
 
@@ -81,6 +82,8 @@ def send_welcome(message):
         print("DEBUG: conversation startet")
         
     bot.reply_to(message, "Howdy, im a language translation bot. Just keep talking to me.")
+    
+    global Started
     Started = True
     
     if debug : 
