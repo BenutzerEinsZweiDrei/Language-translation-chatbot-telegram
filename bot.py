@@ -1,5 +1,6 @@
 import os, time
 from hugchat_api import HuggingChat
+from hugchat_api.core import ListBots
 import telebot
 from deep_translator import GoogleTranslator
 
@@ -18,7 +19,7 @@ transPrompt = True # if you translate your prompt hugchat will remember better t
 
 remindShort = True # always remind him to keep answers short
 
-BOT_TOKEN = "your telegram token"
+BOT_TOKEN = "your telegram bot token"
 
 EMAIL = "your huggingface email"
 PASSWD = "your huggingface password"
@@ -41,7 +42,7 @@ sign = HUG.getSign(EMAIL, PASSWD) #login
 
 cookies = sign.loadCookiesFromDir(cookie_dir_path=COOKIE_STORE_PATH)
 
-chatbot = HUG.getBot(email=EMAIL, cookies=cookies) # create bot
+chatbot = HUG.getBot(email=EMAIL, cookies=cookies,model=ListBots.META_70B_HF) # create bot
 
 Started = False
 
