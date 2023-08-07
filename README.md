@@ -21,5 +21,6 @@ Uses huggingface ai to respond to messages on telegram in 2 languages
 
 - Hugchat Crash on Doctype html issue https://github.com/IntelligenzaArtificiale/Free-Auto-GPT/issues/133
 - Hugchat/ Open Assitant downtimes. check for status https://ykilcher.com/open-assistant-discord
-
+- Responses are kinda slow
+- sometimes you have to log into hugchat website to delete all conversations
 
