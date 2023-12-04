@@ -35,7 +35,7 @@ promptTeacher = "I want you to act as a spoken "+learnLanguage+" teacher and imp
 if debug : 
     print("DEBUG: before loading hugchat")
     
-HUG = HuggingChat(max_thread=1) # create ThreadPool
+HUG = HuggingChat()
 
 # initialize sign in funciton
 sign = HUG.getSign(EMAIL, PASSWD) #login
@@ -79,13 +79,13 @@ def send_welcome(message):
         
     # Create a new conversation
     global conversation_id 
-    conversation_id = chatbot.createConversation()
+    conversation_id = chatbot.createConversation(True)
     
     # tell bot to be a teacher
     pro = chatbot.chat(
     text=promptTeacher,
     conversation_id=conversation_id,
-    web_search=True,
+    web_search=False,
     max_tries=2,
     )
             
